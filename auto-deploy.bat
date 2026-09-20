@@ -76,8 +76,10 @@ git push origin main
 if errorlevel 1 (
     echo [错误] git push origin main 失败，尝试用 PAT 认证推送...
     set "PUSHURL="
-    for /f "usebackq tokens=1,* delims=:" %%a in (`findstr /i /r "^https://420201953-dot" "%USERPROFILE%\.git-credentials"`) do (
-        if not defined PUSHURL set "PUSHURL=https://%%a@github.com/420201953-dot/ai-videos.git"
+    for /f "usebackq tokens=2 delims=:@" %%p in (`findstr /i /r "^https://420201953-dot" "%USERPROFILE%\.git-credentials"`) do (
+        for /f "tokens=1 delims=@" %%q in ("%%p") do (
+            if not defined PUSHURL set "PUSHURL=https://420201953-dot:%%q@github.com/420201953-dot/ai-videos.git"
+        )
     )
     if defined PUSHURL (
         echo 使用 PAT 认证推送（隐去 token）
