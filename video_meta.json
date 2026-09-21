@@ -5,5 +5,12 @@
     "prompt": "这里填写完整AI提示词，支持多行",
     "poster": "posters/s000035.jpg",
     "video": "s000035.mp4"
+  },
+  "s000036": {
+    "title": "测试视频-城市街景6666",
+    "category": "场景素材8888",
+    "prompt": "城市白天街道车流，电影感运镜88888",
+    "poster": "posters/s000036.jpg",
+    "video": "s000036.mp4"
   }
 }
